@@ -9,7 +9,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "next lint",
-    "db:setup": "psql \"$SUPABASE_DB_URL\" -f supabase/schema.sql -f supabase/seed.sql"
+    "db:setup": "psql \"$SUPABASE_DB_URL\" -f supabase/schema.sql -f supabase/seed.sql",
+    "gen:seed": "vite-node scripts/gen-seed-sql.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
