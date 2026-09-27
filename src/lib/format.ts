@@ -22,8 +22,8 @@ export function landmarkLabel(key: string): string {
   return LANDMARK_LABELS[key] ?? key;
 }
 
-function money(n: number): string {
-  return `₹${Math.round(n).toLocaleString("en-IN")}`;
+function money(n: number | string): string {
+  return `₹${Math.round(Number(n)).toLocaleString("en-IN")}`;
 }
 
 export function getsLine(check: CheckResult): string | null {
@@ -40,7 +40,7 @@ export function getsLine(check: CheckResult): string | null {
     case "bathrooms":
       return `${check.detail.bathrooms} bathrooms (needs ${check.detail.min}+)`;
     case "commute":
-      return `Commute to ${landmarkLabel(check.detail.landmark)} ${check.detail.minutes} min (limit ${check.detail.maxMin})`;
+      return `Commute to ${landmarkLabel(String(check.detail.landmark))} ${check.detail.minutes} min (limit ${check.detail.maxMin})`;
     default:
       return null;
   }
@@ -48,12 +48,15 @@ export function getsLine(check: CheckResult): string | null {
 
 export function bendLine(check: CheckResult): string {
   if (check.field === "rent") {
-    const { share, maxRent } = check.detail;
+    const share = Number(check.detail.share);
+    const maxRent = Number(check.detail.maxRent);
     const pct = Math.round(((share - maxRent) / maxRent) * 100);
     return `Rent share ${money(share)} vs ${money(maxRent)} limit (+${pct}%)`;
   }
   if (check.field === "commute") {
-    const { landmark, minutes, maxMin } = check.detail;
+    const landmark = String(check.detail.landmark);
+    const minutes = Number(check.detail.minutes);
+    const maxMin = Number(check.detail.maxMin);
     return `Commute to ${landmarkLabel(landmark)} ${minutes} min vs limit ${maxMin} (+${minutes - maxMin})`;
   }
   return "A limit was bent";
