@@ -93,7 +93,7 @@ export default async function GroupPage({
       <div className="flex items-start justify-between gap-2">
         <h1 className="text-xl font-bold text-slate-900">Results</h1>
         <ActionButton
-          action={() => startNewRoundAction(params.code)}
+          action={startNewRoundAction.bind(null, params.code)}
           label="Start new round"
           pendingLabel="Starting..."
         />
@@ -116,7 +116,7 @@ export default async function GroupPage({
 
       {group.is_demo && result.status === "conflict" && result.what_ifs.time.length > 0 && (
         <ActionButton
-          action={() => applyWhatIfAction(params.code, result.what_ifs.time[0])}
+          action={applyWhatIfAction.bind(null, params.code, result.what_ifs.time[0])}
           label="Apply the first what-if"
           pendingLabel="Applying..."
           className="w-fit rounded-md border border-slate-900 bg-white px-3 py-1.5 text-xs font-semibold text-slate-900"

@@ -116,7 +116,7 @@ insert into listings (id, group_id, title, area, rent, floor, lift, parking, pet
   (12, null, '3BHK in Aundh #2', 'Aundh', 49500, 2, null, true, true, 3, false, true, false, true, false, null, true, 'active'),
   (13, null, '3BHK in Shivajinagar #2', 'Shivajinagar', 57000, 4, true, true, true, 3, true, true, false, true, false, null, true, 'active'),
   (14, null, '3BHK in Magarpatta', 'Magarpatta', 45000, 8, true, true, true, 3, true, true, true, false, true, null, true, 'active'),
-  (15, null, '3BHK in Aundh #2', 'Aundh', 46000, 3, true, null, false, 2, true, false, true, true, false, null, true, 'active'),
+  (15, null, '3BHK in Aundh #3', 'Aundh', 46000, 3, true, null, false, 2, true, false, true, true, false, null, true, 'active'),
   (16, null, '3BHK in Baner #2', 'Baner', 44000, 6, true, true, false, 2, false, true, true, false, true, null, true, 'active'),
   (17, null, '3BHK in Wakad #2', 'Wakad', 41000, 2, false, true, true, 3, false, true, false, false, false, null, true, 'active'),
   (18, null, '3BHK in Kothrud #2', 'Kothrud', 39000, 4, true, false, true, 2, true, false, false, true, false, null, true, 'active'),

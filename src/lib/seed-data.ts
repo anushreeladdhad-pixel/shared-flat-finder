@@ -146,7 +146,12 @@ const SAMPLE_ROWS: SampleRow[] = [
 ];
 
 function titleFor(area: string, index: number, sameAreaCountBefore: number): string {
-  return sameAreaCountBefore > 0 ? `3BHK in ${area} #2` : `3BHK in ${area}`;
+  // Spec only names the rule for a second listing in the same area ("#2").
+  // Aundh has three sample listings (ids 3, 12, 15), so the third gets "#3"
+  // by extending that same numbering (see DECISIONS.md).
+  return sameAreaCountBefore > 0
+    ? `3BHK in ${area} #${sameAreaCountBefore + 1}`
+    : `3BHK in ${area}`;
 }
 
 export const SAMPLE_LISTINGS: Listing[] = (() => {

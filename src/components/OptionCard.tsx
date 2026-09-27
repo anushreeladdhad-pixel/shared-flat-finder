@@ -73,10 +73,10 @@ export function OptionCard({
       {isOrganiser && (
         <div className="mt-4 flex justify-end">
           <ActionButton
-            action={() => markListingGoneAction(code, organiserToken, l.id)}
+            action={markListingGoneAction.bind(null, code, organiserToken, l.id)}
             label="Mark gone"
             pendingLabel="Marking..."
-            confirmMessage={`Mark "${l.title}" as gone? This affects everyone in the group.`}
+            confirmLabel="Tap again to confirm"
           />
         </div>
       )}
