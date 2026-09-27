@@ -171,6 +171,18 @@ code path itself has not been exercised live.
 
 ## GitHub
 
-Repository created and pushed: see the URL in the final summary message
-(commands used: `gh repo create shared-flat-finder --public
---source=. --remote=origin`, then `git push -u origin main`).
+**Not pushed.** The `gh` CLI is not installed on this machine (and there is
+no Homebrew either, so it could not be installed as part of this session).
+All work is committed locally on `main` (6 commits, working tree clean).
+To publish, run from `/Users/anushreeladdhad/Downloads/shared-flat-finder`:
+
+```bash
+# Option A: gh CLI (after installing + `gh auth login`)
+gh repo create shared-flat-finder --public --source=. --remote=origin
+git push -u origin main
+
+# Option B: no gh CLI — create an empty public repo named
+# "shared-flat-finder" at https://github.com/new, then:
+git remote add origin git@github.com:<your-username>/shared-flat-finder.git
+git push -u origin main
+```
